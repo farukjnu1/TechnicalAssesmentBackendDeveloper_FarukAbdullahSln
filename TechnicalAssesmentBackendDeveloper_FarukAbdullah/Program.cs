@@ -23,6 +23,15 @@ namespace TechnicalAssesmentBackendDeveloper_FarukAbdullah
 
             // Part Two: Implement the RemoveItem method
             manager.RemoveItem("Apple");
+
+            // Part Three: Introduce a Fruit class and use the ItemManager<Fruit> to add a few fruits and print them on the console.
+            // TODO: Implement this part three.
+            ItemManager<Fruit> managerFruit = new ItemManager<Fruit>();
+            managerFruit.AddItem(new Fruit() { Name = "Cherry" });
+            managerFruit.AddItem(new Fruit() { Name = "Dragon fruit" });
+
+            Console.WriteLine("\nFruits:");
+            managerFruit.PrintAllItems();
         }
     }
 
@@ -67,6 +76,56 @@ namespace TechnicalAssesmentBackendDeveloper_FarukAbdullah
         public void ClearAllItems()
         {
             items.Clear();
+        }
+    }
+
+    public class ItemManager<T>
+    {
+        private List<T> items;
+
+        public ItemManager()
+        {
+            items = new List<T>();
+        }
+
+        public void AddItem(T item)
+        {
+            items.Add(item);
+        }
+
+        public void RemoveItem(T item)
+        {
+            if (items.Contains(item))
+            {
+                items.Remove(item);
+                Console.WriteLine($"{item} removed successfully.");
+            }
+            else
+            {
+                Console.WriteLine($"{item} not found.");
+            }
+        }
+
+        public void PrintAllItems()
+        {
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+
+        public void ClearAllItems()
+        {
+            items.Clear();
+        }
+    }
+
+    public class Fruit
+    {
+        public string Name { get; set; }
+        public override string ToString()
+        {
+            return $"{Name}";
         }
     }
 }
