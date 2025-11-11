@@ -32,6 +32,9 @@ namespace TechnicalAssesmentBackendDeveloper_FarukAbdullah
 
             Console.WriteLine("\nFruits:");
             managerFruit.PrintAllItems();
+
+            // Part Four (Bonus): Implement an interface IItemManager and make ItemManager implement it.
+            // TODO: Implement this part four.
         }
     }
 
@@ -79,7 +82,15 @@ namespace TechnicalAssesmentBackendDeveloper_FarukAbdullah
         }
     }
 
-    public class ItemManager<T>
+    public interface IItemManager<T>
+    {
+        void AddItem(T item);
+        void RemoveItem(T item);
+        void PrintAllItems();
+        void ClearAllItems();
+    }
+
+    public class ItemManager<T>: IItemManager<T>
     {
         private List<T> items;
 
