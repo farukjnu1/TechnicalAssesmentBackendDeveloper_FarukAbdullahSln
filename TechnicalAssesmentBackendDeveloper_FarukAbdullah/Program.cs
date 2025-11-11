@@ -14,7 +14,7 @@ namespace TechnicalAssesmentBackendDeveloper_FarukAbdullah
 
             ItemManager manager = new ItemManager();
 
-            // Part One: Fix the NullReferenceException
+            // Part One: Fix the NullReferenceException 
             // This will throw a NullReferenceException
             manager.AddItem("Apple");
             manager.AddItem("Banana");
