@@ -20,6 +20,9 @@ namespace TechnicalAssesmentBackendDeveloper_FarukAbdullah
             manager.AddItem("Banana");
 
             manager.PrintAllItems();
+
+            // Part Two: Implement the RemoveItem method
+            manager.RemoveItem("Apple");
         }
     }
 
